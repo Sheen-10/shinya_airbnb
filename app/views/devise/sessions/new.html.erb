@@ -1,29 +1,32 @@
-<div id="wrapper">
-    <div class="col-lg-4 mx-auto">
-        <h2 class="text-center mb-5">Log in</h2>
+<body class="bg-form">
+    <div id="wrapper">
+        <div class="container form_class">
+            <div class="col-lg-4 bg-form-container pt-1 pb-3">
+                <h2 class="text-center mt-4 mb-4">Log in</h2>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",placeholder: "Fullname" %>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="form-group">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",placeholder: "Fullname" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.password_field :password, autocomplete: "current-password", class: "form-control",placeholder: "Password" %>
+                    </div>
+
+                    <% if devise_mapping.rememberable? %>
+                        <div class="field">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                            <span class="float-right">
+                                <%= link_to "Forget Password", new_user_password_path%>
+                            </span>
+                        </div>
+                    <% end %>
+
+
+                    <%= f.submit "Log in", class: "btn btn-primary active btn-block mt-4" %>
+                <% end %>
             </div>
-
-            <div class="form-group">
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control",placeholder: "Password" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-                <div class="field">
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                    <span class="float-right">
-                        <%= link_to "Forget Password", new_user_password_path%>
-                    </span>
-                </div>
-            <% end %>
-
-
-            <%= f.submit "Log in", class: "btn btn-primary btn-block mt-4" %>
-        <% end %>
+        </div>
     </div>
-</div>
 

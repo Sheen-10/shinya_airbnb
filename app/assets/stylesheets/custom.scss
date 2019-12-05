@@ -99,8 +99,27 @@ address {
   font-weight: 350px;
 }
 
+.bg-form{
+  background-image: url(house.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 // header
 
 .avatar-small {
   width: 28px;
+}
+
+.nav-link {
+  margin-right: 8px;
+}
+
+//devise_passwords_new registrations_new sessions_new
+
+.form_class {
+  margin-top: 250px;
+}
+
+.bg-form-container {
+  background-color: white;
 }
