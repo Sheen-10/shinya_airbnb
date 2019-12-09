@@ -1,0 +1,22 @@
+<div id="wrapper">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <%= image_tag avatar_url(@user), class: "avatar-full"%>
+                    <div class="card-header text-center">
+                        <h5>Verification</h5>
+                    </div>
+                    <div class="card-body">
+                        Email:<br><%= current_user.email %><br><br>Phone Number:<br><%= current_user.phone_number %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 mt-4">
+                <div class="user_show_fullname">
+                    <h3><%= current_user.fullname %></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
