@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <%= render "room_menu" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                Amenities
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <%= form_for @room do |f| %>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> TV </label>
+                                    <%= f.check_box :is_tv, id: :checkbox,:as => :boolean %>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> Kitchen </label>
+                                    <%= f.check_box :is_kitchen, id: :checkbox,:as => :boolean %>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> Internet </label>
+                                    <%= f.check_box :is_internet, id: :checkbox,:as => :boolean %>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> Heating </label>
+                                    <%= f.check_box :is_heating, id: :checkbox,:as => :boolean %>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> Air Conditioning </label>
+                                    <%= f.check_box :is_air, id: :checkbox,:as => :boolean %>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <%= f.submit "Save", class: "btn btn-primary"%>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
