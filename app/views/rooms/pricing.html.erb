@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <%= render "room_menu" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                Price
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <%= form_for @room do |f| %>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <%= f.text_field :price, placeholder: "eg: 100", class: "form-control", required: true %>
+
+                            <div>
+                                <%= f.submit "Save", class: "btn btn-primary mt-3" %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ class User < ApplicationRecord
         :confirmable, :omniauthable
 
   validates :fullname, presence: true, length: { maximum: 50}
+  has_many :rooms, dependent: :destroy
 
   def self.from_omniauth(auth)
 
