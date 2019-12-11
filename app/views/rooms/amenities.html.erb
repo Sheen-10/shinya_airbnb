@@ -9,7 +9,7 @@
 
     <div class="col-9">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header text-white bg-success">
                 Amenities
             </div>
             <div class="card-body">
@@ -35,20 +35,20 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label> Heating </label>
                                     <%= f.check_box :is_heating, id: :checkbox,:as => :boolean %>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label> Air Conditioning </label>
                                     <%= f.check_box :is_air, id: :checkbox,:as => :boolean %>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <%= f.submit "Save", class: "btn btn-primary"%>
+                        <div class="text-center mt-1">
+                            <%= f.submit "Save", class: "btn btn-primary room-form-btn"%>
                         </div>
                     <% end %>
                 </div>

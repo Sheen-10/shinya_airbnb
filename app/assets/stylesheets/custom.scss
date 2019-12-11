@@ -114,9 +114,9 @@ address {
   margin-right: 8px;
 }
 
-//devise_passwords_new registrations_new sessions_new
+//devise-passwords-new registrations-new sessions-new
 
-.form_class {
+.form-class {
   margin-top: 250px;
 }
 
@@ -124,12 +124,40 @@ address {
   background-color: white;
 }
 
-//users_show
-
-.user_show_fullname {
-  
-}
-
 .avatar-full {
   width: 100%;
+}
+
+//room 全体
+.room-form-btn {
+  width: 80px;
+}
+
+//photo-upload
+
+.card-header {
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+//photo-list
+
+.photo-list-card-body-li i {
+  color: #444444;
+}
+
+//room-menu
+
+.room-menu a {
+  color: black;
+}
+
+//room-listing-page
+
+.list-form-control select {
+  height: 25px;
+  width: 170px;
 }
