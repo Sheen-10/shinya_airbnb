@@ -70,5 +70,18 @@ Rails.application.configure do
     user_name: Rails.application.credentials.mailgun[:user_name],
     password:  Rails.application.credentials.mailgun[:password]
   }
+
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-ap-northeast-1.amazonaws.com',
+    s3_credentials: {
+      bucket: 'shinairbnb',
+      access_key_id: 'AKIAI7DA7DQEJPGQQCNQ',
+      secret_access_key: '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',
+      s3_region: 'ap-northeast-1'
+    }
+  }
 end
 
