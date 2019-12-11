@@ -1,0 +1,23 @@
+<% if @photos.count > 0 %>
+    <br><br>
+
+    <div class="row">
+        <% @photos.each do |photo| %>
+            <div class="col-4">
+                <div class="card mt-4">
+                    <div class="card-header preview p-0">
+                        <%= image_tag photo.image.url %>
+                    </div>
+
+                    <div class="card-body">
+                        <span class="float-right photo-list-card-body-li">
+                            <%= link_to room_photo_path(photo.room_id, photo), method: :delete, data: {confirm: "Are you sure?"} do %>
+                                <i class="fa fa-trash fa-lg faa-float animated"></i>
+                            <% end %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>

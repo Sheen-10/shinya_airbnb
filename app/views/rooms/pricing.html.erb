@@ -9,7 +9,7 @@
 
     <div class="col-9">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header text-white bg-success">
                 Price
             </div>
             <div class="card-body">
@@ -19,8 +19,8 @@
                             <label>Price</label>
                             <%= f.text_field :price, placeholder: "eg: 100", class: "form-control", required: true %>
 
-                            <div>
-                                <%= f.submit "Save", class: "btn btn-primary mt-3" %>
+                            <div class="text-center mt-1">
+                                <%= f.submit "Save", class: "btn btn-primary mt-3 room-form-btn" %>
                             </div>
                         </div>
                     <% end %>

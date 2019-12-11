@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header text-white bg-success">
         Create your beautiful places
     </div>
     <div class="card-body">
@@ -8,43 +8,53 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
-                            <label>Home Type</label>
-                            <%# 2回Apartmentとかを繰り返すのはdbに保存と画面上に出すため %>
-                            <%= f.select :home_type, [["Apartment", "Apartment",], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]], id:"home_type", prompt:"Select...", class: "form-control" %>
+                            <label>Home Type</label><br>
+                            <div class="list-form-control">
+                                <%# 2回Apartmentとかを繰り返すのはdbに保存と画面上に出すため %>
+                                <%= f.select :home_type, [["Apartment", "Apartment",], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]], id:"home_type", prompt:"Select...", class: "form-control" %>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="form-group">
-                            <label>Room Type</label>
-                            <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Praivate"], ["Shared", "Shared"]], id:"room_type", prompt:"Select...", class: "form-control" %>
+                            <label>Room Type</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Praivate"], ["Shared", "Shared"]], id:"room_type", prompt:"Select...", class: "form-control" %>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="form-group">
-                            <label>Accommodate</label>
-                            <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],id:"accommodate", prompt:"Select...", class: "form-control" %>
+                            <label>Accommodate</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],id:"accommodate", prompt:"Select...", class: "form-control" %>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="form-group">
-                            <label>Bedrooms</label>
-                            <%= f.select :bedroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bedroom", prompt:"Select...", class: "form-control" %>
+                            <label>Bedrooms</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :bedroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bedroom", prompt:"Select...", class: "form-control" %>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="form-group">
-                            <label>Bathrooms</label>
-                            <%= f.select :bathroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bathroom", prompt:"Select...", class: "form-control" %>
+                            <label>Bathrooms</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :bathroom, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bathroom", prompt:"Select...", class: "form-control" %>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <%= f.submit "Create My Room", class: "btn btn-primary" %>
+                <div class="mt-2">
+                    <%= f.submit "Create My Room", class: "btn btn-danger" %>
                 </div>
             <% end %>
         </div>

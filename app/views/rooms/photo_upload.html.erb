@@ -9,10 +9,28 @@
 
     <div class="col-9">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header text-white bg-success">
                 Photos
             </div>
             <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-3 col-6">
+                            <%= form_for @room, url: room_photos_path(@room), method: 'post', html: {multipart:true} do |f| %>
+                                <div class="form-group mt-3">
+                                    <span>
+                                        <%= file_field_tag "images[]", type: :file, multiple: true, class: "btn btn-outline-secondary"%>
+                                    </span>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <%= f.submit "Add Photos", class: "btn btn-danger" %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <%= render "photos/photos_list" %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

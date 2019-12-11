@@ -73,7 +73,7 @@ gem 'paperclip', '~> 5.1.0'
 
 gem 'font-awesome-rails'
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 3.0'
 
 gem 'geocoder', '~> 1.4'
 
