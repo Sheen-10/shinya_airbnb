@@ -114,7 +114,7 @@ address {
   margin-right: 8px;
 }
 
-//devise-passwords-new registrations-new sessions-new
+// devise-passwords-new registrations-new sessions-new
 
 .form-class {
   margin-top: 250px;
@@ -128,12 +128,12 @@ address {
   width: 100%;
 }
 
-//room 全体
+// room 全体
 .room-form-btn {
   width: 80px;
 }
 
-//photo-upload
+// photo-upload
 
 .card-header {
   padding: 0;
@@ -143,21 +143,28 @@ address {
   }
 }
 
-//photo-list
+// photo-list
 
 .photo-list-card-body-li i {
   color: #444444;
 }
 
-//room-menu
+// room-menu
 
 .room-menu a {
   color: black;
 }
 
-//room-listing-page
+// room-listing-page
 
 .list-form-control select {
   height: 40px;
   width: 170px;
+}
+
+// room-index-page
+
+.img-size {
+  width: 85px;
+  height: 75px;
 }
