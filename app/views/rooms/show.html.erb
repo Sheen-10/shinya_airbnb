@@ -1,2 +1,109 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-12 mb-1">
+            <%= image_tag @room.photos.first.image.url, width:"100%" %>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class=col-8>
+            <div class="row">
+                <div class="col-8">
+                    <h3 class="mb-4"><%= @room.listing_name %></h3>
+                    <p><%= @room.address%></p>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="mb-3">
+                        <%= image_tag avatar_url(@room.user), class:"rounded-circle" %><br>
+                    </div>
+                    <%= @room.user.fullname%>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-3 text-center">
+                    <i class="fa fa-home"></i>
+                    <%= @room.home_type %>
+                </div>
+                <%# pluralizeはintegerのみに使う。だからstringには使わない %>
+                <div class="col-3 text-center">
+                    <i class="fa fa-user-circle"></i>
+                    <%= pluralize(@room.accommodate, "Guest") %>
+                </div>
+                <div class="col-3 text-center">
+                    <i class="fa fa-bed"></i>
+                    <%= pluralize(@room.bedroom, "Bedroom") %>
+                </div>
+                <div class="col-3 text-center">
+                    <i class="fa fa-bath"></i>
+                    <%= pluralize(@room.bathroom, "Bathroom") %>
+                </div>
+            </div>
+            <div class="col-4">
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-3">About This Listing</h3>
+                    <%= @room.summary %>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-4">
+                    <h3>Amenities</h3>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li class=" <%= 'text-line-through' if !@room.is_tv %>">TV</li>
+                    </ul>
+                    <ul>
+                        <li class=" <%= 'text-line-through' if !@room.is_kitchen %>">KITCHEN</li>
+                    </ul>
+                    <ul>
+                        <li class=" <%= 'text-line-through' if !@room.is_internet %>">INTERNET</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li class=" <%= 'text-line-through' if !@room.is_heating %>">HEATING</li>
+                    </ul>
+                    <ul>
+                        <li class=" <%= 'text-line-through' if !@room.is_air %>">AIR CONDITIONING</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+
+            <%# Carousel %>
+            <div class="row mb-3">
+                <% if @photos.length > 0 %>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <% @photos.each do |photo| %>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<%= photo.id %>"></li>
+                            <% end %>
+                        </ol>
+                        <div class="carousel-inner">
+                            <% @photos.each do |photo| %>
+                                <div class="carousel-item <%= 'active' if photo.id == @photos[0].id %>">
+                                    <%= image_tag photo.image.url(), class: "d-block w-100" %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
