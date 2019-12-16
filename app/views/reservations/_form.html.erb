@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+        <span>$ <%= @room.price %></span>
+        <span class="float-left">Per Night</span>
+    </div>
+    <div class="card-body">
+        <%= form_for [@room, @reservation] do |f| %>
+            <div class="row">
+                <div class="col-6">
+                    <label> Check In</label>
+                    <%= f.text_field :start_date, placeholder: "Start date", class:"form-control" %>
+                </div>
+
+                <div class="col-6">
+                    <label> Check Out</label>
+                    <%= f.text_field :end_date, placeholder: "End date", class:"form-control" %>
+                </div>
+            </div>
+            <%= f.submit "Book Now", class: "btn btn-primary btn-block active mt-4" %>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('#reservation_start_date').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+
+        $('#reservation_end_date').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+
+    });
+</script>
