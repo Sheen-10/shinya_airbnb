@@ -110,7 +110,7 @@
 
             <div class="row mb-3">
                 <div id="map" style="width:700px; height:400px;">
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJoQm3VnL_K8IDf5hupS6cUvmetlCn-6M"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key%>"></script>
                     <script>
                         function initialize(){
                             var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
