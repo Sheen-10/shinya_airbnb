@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <span>$ <%= @room.price %></span>
-        <span class="float-left">Per Night</span>
+        <span class="float-left resservations-from-title">Per Night</span>
     </div>
     <div class="card-body">
         <%= form_for [@room, @reservation] do |f| %>
@@ -16,7 +16,7 @@
                     <%= f.text_field :end_date, placeholder: "End date", class:"form-control" %>
                 </div>
             </div>
-            <%= f.submit "Book Now", class: "btn btn-primary btn-block active mt-4" %>
+            <%= f.submit "Book Now", class: "btn btn-info btn-block mt-4" %>
         <% end %>
     </div>
 </div>
