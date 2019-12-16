@@ -136,6 +136,30 @@
                     </script>
                 </div>
             </div>
+            <hr>
+
+            <%# //near by places %>
+
+            <div>
+                <h3 class="mb-3">Near by </h3>
+                <div class="row mb-3">
+                    <% for room in @room.nearbys(10) %>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header preview">
+                                    <%= image_tag room.photos.first.image.url(:medium) %>
+                                </div>
+                                <div class="card-body">
+                                    <%= link_to room.listing_name, room %>
+                                    <%# round(2)は小数点２つまでということ %>
+                                    (<%= room.distance.round(2) %> miles away)
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
