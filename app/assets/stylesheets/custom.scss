@@ -194,3 +194,16 @@ address {
 .resservations-from-title {
   letter-spacing: 0.1em;
 }
+
+.reservation-table td {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #DCE0E0;
+  padding: 10px;
+}
+
+.reservation-table .total {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}

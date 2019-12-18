@@ -45,7 +45,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h3 class="mb-3">About This Listing</h3>
+                    <h3 class="mb-4">About This Listing</h3>
                     <%= @room.summary %>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <div class="col-4">
                     <h3>Amenities</h3>
                 </div>
-                <div class="col-4">
+                <div class="col-4 mt-5">
                     <ul>
                         <li class=" <%= 'text-line-through' if !@room.is_tv %>">TV</li>
                     </ul>
@@ -66,7 +66,7 @@
                         <li class=" <%= 'text-line-through' if !@room.is_internet %>">INTERNET</li>
                     </ul>
                 </div>
-                <div class="col-4">
+                <div class="col-4 mt-5">
                     <ul>
                         <li class=" <%= 'text-line-through' if !@room.is_heating %>">HEATING</li>
                     </ul>
@@ -145,7 +145,7 @@
                 <div class="row mb-3">
                     <% for room in @room.nearbys(10) %>
                         <div class="col-4">
-                            <div class="card">
+                            <div class="card mb-3">
                                 <div class="card-header preview">
                                     <%= image_tag room.photos.first.image.url(:medium) %>
                                 </div>
