@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body pb-1">
+                <%= render "rooms/room_listing_menu" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header bg-danger  text-white text-center">
+                Your Trips
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <% @trips.each do |trip| %>
+                        <div class="row">
+                            <div class="col-md-2 pr-0">
+                                <%= trip.start_date.strftime('%v')%>
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <div class="media mb-2 media-container">
+                                    <% if trip.room.photos.blank? %>
+                                        <%= image_tag 'no-image-icon.png', class: "img-size" %>
+                                    <% else %>
+                                        <%= image_tag trip.room.photos.first.image.url(:thumb) %>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="ml-4">
+                                    <%= link_to trip.room.listing_name, room_path(trip.room), class: "reservations-a-tag" %><br><br>
+                                </div>
+                                <span>
+                                    <%= image_tag avatar_url(trip.room.user), class: "rounded-circle avatar-small mr-2" %>
+                                    <%= link_to trip.room.user.fullname, user_path(trip.room.user), class: "reservations-a-tag" %>
+                                </span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <%= link_to 'Review Host', '#', class:"btn btn-primary btn-block room-form-btn" %>
+                            </div>
+                        </div>
+                        <hr>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
