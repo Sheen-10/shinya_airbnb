@@ -9,13 +9,13 @@
 
     <div class="col-9">
         <div class="card">
-            <div class="card-header text-white bg-success">
+            <div class="card-header text-white bg-danger text-center">
                 Your Listings
             </div>
             <div class="card-body">
                 <div class="container">
-                    <div class="row">
-                        <% @rooms.each do |room| %>
+                    <% @rooms.each do |room| %>
+                        <div class="row">
                             <div class="col-md-2 mt-2">
                                 <div class="media mb-4 media-container">
                                     <% if room.photos.blank? %>
@@ -25,14 +25,15 @@
                                     <% end %>
                                 </div>
                             </div>
-                            <div class="col-md-7 mt-4 pl-5">
+                            <div class="col-md-7 mt-4 text-center">
                                 <%= room.listing_name %>
                             </div>
-                            <div class="col-md-3">
-                                <%= link_to 'Update', listing_room_path(room), class:"btn btn-info mt-2 room-form-btn" %>
+                            <div class="col-md-3 mt-3">
+                                <%= link_to 'Update', listing_room_path(room), class: "btn btn-primary btn-block room-form-btn" %>
                             </div>
-                        <% end %>
-                    </div>
+                        </div>
+                        <hr class="mt-0 mb-2">
+                    <% end %>
                 </div>
             </div>
         </div>
