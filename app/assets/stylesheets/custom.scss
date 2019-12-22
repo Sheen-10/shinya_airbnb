@@ -189,6 +189,10 @@ address {
   text-decoration: line-through;
 }
 
+.near-by-list-name a {
+  color: black;
+}
+
 // reservations-form
 
 .resservations-from-title {
@@ -217,4 +221,10 @@ address {
 
 .reservations-a-tag {
   color: black;
+}
+
+// host-form guest-form
+
+.modal-header-text {
+  margin-left: 147px;
 }
