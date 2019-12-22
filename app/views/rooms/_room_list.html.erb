@@ -1,0 +1,13 @@
+<% @rooms.each do |room| %>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header preview">
+                <%= image_tag room.photos.first.image.url(:medium) %>
+            </div>
+            <div class="card-body room-body">
+                <%= link_to room.listing_name, room %><br>
+                $<%= room.price %> - <%= room.home_type %>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -10,7 +10,7 @@
 
     <div class="col-9">
         <div class="card">
-            <div class="card-header bg-danger text-white text-center">
+            <div class="card-header bg-warning text-center">
                 Your Reservations
             </div>
             <div class="card-body">
@@ -38,7 +38,7 @@
                                     </span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <%= link_to 'Review Guest', "#", class: "btn btn-primary btn-block room-form-btn" %>
+                                    <%= render partial: "reviews/host_form", locals: {reservation: reservation} %>
                                 </div>
                             </div>
                             <hr>

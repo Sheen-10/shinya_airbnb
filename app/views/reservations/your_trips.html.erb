@@ -38,7 +38,7 @@
                                 </span>
                             </div>
                             <div class="col-md-3 mt-3">
-                                <%= link_to 'Review Host', '#', class:"btn btn-primary btn-block room-form-btn" %>
+                                <%= render partial: "reviews/guest_form", locals: {reservation: trip} %>
                             </div>
                         </div>
                         <hr>

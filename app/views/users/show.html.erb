@@ -8,14 +8,29 @@
                         <h5>Verification</h5>
                     </div>
                     <div class="card-body">
-                        Email:<br><%= @user.email %><br><br>Phone Number:<br><%= @user.phone_number %>
+                        <h5>Name:</h5><p><%= @user.fullname %></p><br>
+                        <h5>Email:</h5><p><%= @user.email %></p><br>
+                        <h5>Phone Number: </h5><p><%= @user.phone_number %></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 mt-4">
-                <div class="user_show_fullname">
-                    <h3><%= @user.fullname %></h3>
+
+                <h4>Listings (<%= @rooms.length %>)<h4><br>
+                <div class="row">
+                    <%= render 'rooms/room_list' %>
+                </div><br><br>
+
+                <h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
+                <div>
+                    <%= render "reviews/guest_list" %>
+                </div><br><br>
+
+                <h4>Reviews From Hosts (<%= @host_reviews.count %>)</h4>
+                <div>
+                    <%= render "reviews/host_list" %>
                 </div>
+
             </div>
         </div>
     </div>
