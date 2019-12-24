@@ -1,0 +1,50 @@
+<div id="main">
+    <div id="left">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <button id="filter" class="btn btn-primary" data-toggle="collapse" data-target="#collapsePanel">
+                More Filters<i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <br>
+            <div class="collapse" id="collapsePanel">
+                More Filter
+            </div>
+            <br>
+
+            <div class="row">
+                <% @arrRooms.each do |room| %>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header preview">
+                                <%= image_tag room.photos.first.image.url(:medium) %>
+                            </div>
+                            <div class="card-body room-body">
+                                <%= link_to room.listing_name, room %><br>
+                                $<%= room.price %> - <%= room.home_type %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div id="right">
+        <%# Google map should be here. %>
+    </div>
+</div>
+
+<script>
+  $('#filter').click(function(){
+    if(open) {
+      $('#filter').html("More filters <i class='fa fa-chevron-up'></i>")
+    } else {
+      $('#filter').html("More filters <i class='fa fa-chevron-down'></i>")
+    }
+    open = !open;
+  });
+</script>
