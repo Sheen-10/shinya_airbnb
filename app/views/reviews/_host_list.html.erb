@@ -7,8 +7,10 @@
         <hr>
         <div class="row">
             <div class="col-3">
-                <%= image_tag avatar_url(review.host), class: "rounded-circle avatar-medium" %> <br><br>
-                <strong><%= review.host.fullname %></strong>
+                <div class="text-center">
+                    <%= image_tag avatar_url(review.host), class: "rounded-circle avatar-medium" %> <br><br>
+                    <strong><%= review.host.fullname %></strong>
+                </div>
             </div>
 
             <div class="col-9">
@@ -26,11 +28,11 @@
         </div>
 
         <script>
-            $('#star_<%= review.id %>').raty({
-                path: '/assets',
-                readOnly: true,
-                score: <%= review.star %>
-            });
+          $('#star_<%= review.id %>').raty({
+              path: '/assets',
+              readOnly: true,
+              score: <%= review.star %>
+          });
         </script>
     <% end %>
 <% end %>
