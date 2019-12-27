@@ -26,11 +26,11 @@
         </div>
 
         <script>
-            $('#star_<%= review.id %>').raty({
-                path: '/assets',
-                readOnly: true,
-                score: <%= review.star %>
-            });
+          $('#star_<%= review.id %>').raty({
+            path: '/assets',
+            readOnly: true,
+            score: <%= review.star %>
+          });
         </script>
     <% end %>
 <% end %>

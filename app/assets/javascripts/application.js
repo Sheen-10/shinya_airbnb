@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery-ui/datepicker
+//= require jquery-ui/slider
 //= require toastr
 //= require activestorage
 //= require_tree .

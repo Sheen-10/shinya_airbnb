@@ -11,14 +11,100 @@
         <div>
             <br>
             <div class="collapse" id="collapsePanel">
-                More Filter
+                <%= search_form_for @search, url: search_path do |f| %>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label>Price Range: </label>
+                            <div id="slider-range"></div>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Min Price: </label>
+                            <%= f.text_field :price_gteq, class: "form-control" %>
+                        </div>
+                        <div class="col-md-2">
+                            <label>Max Price: </label>
+                            <%= f.text_field :price_lteq, class: "form-control" %>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control" %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-control" %>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[room_type_eq_any][]", "Entire" %> Entire Rooms
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[room_type_eq_any][]", "Private" %> Private Rooms
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[room_type_eq_any][]", "Share" %> Shared Rooms
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Accommodate</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :accommodate_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],id:"accommodate", prompt:"Select...", class: "form-control" %>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label>Bedrooms</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bedroom", prompt:"Select...", class: "form-control" %>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label>Bathrooms</label><br>
+                            <div class="list-form-control">
+                                <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], id:"bathroom", prompt:"Select...", class: "form-control" %>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-2">
+                            <%= check_box_tag "q[is_tv_eq]", true %> TV
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <%= check_box_tag "q[is_kitchen_eq]", true %> Kitchen
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <%= check_box_tag "q[is_internet_eq]", true %> Internet
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[is_heating_eq]", true %> Heating
+                        </div>
+                        <div class="col-md-4">
+                            <%= check_box_tag "q[is_air_eq]", true %> Air Conditioning
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="text-center">
+                        <%= f.submit "Search", class: "btn btn-primary" %>
+                    </div>
+                <% end %>
             </div>
             <br>
 
             <div class="row">
                 <% @arrRooms.each do |room| %>
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card mb-2 search-list">
                             <div class="card-header preview">
                                 <%= image_tag room.photos.first.image.url(:medium) %>
                             </div>
@@ -30,13 +116,60 @@
                     </div>
                 <% end %>
             </div>
+            <div class="text-center">
+                    <%= link_to 'Back', root_path, class:"btn btn-primary mt-2" %>
+                </div>
         </div>
     </div>
 
     <div id="right">
-        <%# Google map should be here. %>
+        <div id="map" style="width: 100%; height: 100%;">
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key%>"></script>
+
+          <script>
+            function initialize(){
+
+              // Default location if there is no location
+              // If there is no result
+              var location = {lat: 44.5403, lng: -78.5463};
+
+              <% if @arrRooms.length > 0 %>
+                // Get the first latitude and longtitude of the room
+                // of the first room on the @arrRooms
+                location = {lat: <%= @arrRooms[0].latitude %>, lng: <%= @arrRooms[0].longitude %> }
+              <% end %>
+
+              // Get the map
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: location,
+                zoom: 12
+              });
+
+              // Initialize variables
+              var marker, infowindow;
+
+              // Looping all rooms and pin the marker
+              <% @arrRooms.each do |room| %>
+              // Create the marker
+              marker = new google.maps.Marker({
+                position: {lat: <%= room.latitude %>, lng: <%= room.longitude %> },
+                map: map
+              });
+
+              // Initialize infowindow
+              infowindow = new google.maps.InfoWindow({
+                content: "<div> $" + <%= room.price %> + "</div>"
+              });
+              // Open infowindow
+              infowindow.open(map,marker);
+              <% end %>
+            }
+
+            // Load the map
+            google.maps.event.addDomListener(window, 'load', initialize);
+          </script>
+        </div>
     </div>
-</div>
 
 <script>
   $('#filter').click(function(){
@@ -46,5 +179,22 @@
       $('#filter').html("More filters <i class='fa fa-chevron-down'></i>")
     }
     open = !open;
+  });
+</script>
+
+<script>
+  $(function(){
+    $("#q_price_gteq").val('100');
+    $("#q_price_lteq").val('500');
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [100, 500],
+      slide: function(event, ui) {
+        $("#q_price_gteq").val(ui.values[0]);
+        $("#q_price_lteq").val(ui.values[1]);
+      }
+    });
   });
 </script>

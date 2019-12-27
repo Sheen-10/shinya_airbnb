@@ -165,6 +165,16 @@ address {
   color: black;
 }
 
+// room-list
+
+.room-body a {
+  color: black;
+}
+
+.room-body {
+  font-size: 20px;
+}
+
 // room-listing-page
 
 .list-form-control select {
@@ -241,6 +251,10 @@ address {
     margin-bottom: 50px;
   }
 
+  .home-list a {
+    color: black;
+  }
+
   //Search
   #main {
     height: 100%;
@@ -251,6 +265,10 @@ address {
     padding: 10px 400px 10px 20px;
     overflow: scroll;
     height: 100%;
+  }
+
+  .search-list a {
+    color: black;
   }
 
   #right {
