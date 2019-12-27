@@ -37,7 +37,7 @@
 <br>
 <div class="row">
     <div class="col-md-3">
-        <a herf="http://localhost:3005/search?utf8=%E2%9C%93&search=los+angeles&start_date=&end_date=&commit=Search">
+        <a href="http://localhost:3005/search?utf8=%E2%9C%93&search=los+angeles&start_date=&end_date=&commit=Search">
             <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
         </a>
     </div>
@@ -62,7 +62,7 @@
 </div><br><br>
 
 <script>
-[  $('#start_date').datepicker({
+  $('#start_date').datepicker({
       dateFormat: 'dd-mm-yy',
       minDate: 0,
       maxDate: '3m',
@@ -76,8 +76,7 @@
       minDate: 0,
       maxDate: '3m',
       onSelect: function(selected) {
-      $('#end_date').datepicker("option", "mixDate", selected);
+      $('#start_date').datepicker("option", "maxDate", selected);
     }
   });
-]
 </script>
