@@ -1,6 +1,7 @@
 * {
   margin:0;
   padding:0;
+  font-family: 'Lato', sans-serif;
 }
 
 html, body, div, span, object, iframe,
@@ -59,6 +60,7 @@ a {
   font-size:100%;
   vertical-align:baseline;
   background:transparent;
+  text-decoration: none !important;
 }
 
 p {
@@ -124,6 +126,8 @@ address {
   color: white;
 }
 
+
+
 // devise-passwords-new registrations-new sessions-new
 
 .form-class {
@@ -146,7 +150,7 @@ address {
 // photo-upload
 
 .card-header {
-  padding: 0;
+  padding: 0px !important;
 
   img {
     width: 100%;
@@ -172,7 +176,7 @@ address {
 }
 
 .room-body {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 // room-listing-page
@@ -278,3 +282,17 @@ address {
     width: 450px;
     height: 100%;
   }
+
+  .navbar {
+    z-index: 1;
+  }
+
+  .card-header {
+    padding: 0px !important;
+  }
+
+  .home-list {
+    margin-top: 25px;
+    width: 100%;
+  }
+
