@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -91,4 +91,29 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3005 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain: Rails.application.credentials.mailgun[:domain],
+    authentication: 'plain',
+    user_name: Rails.application.credentials.mailgun[:user_name],
+    password:  Rails.application.credentials.mailgun[:password]
+  }
+
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-ap-northeast-1.amazonaws.com',
+    s3_credentials: {
+      bucket: 'shinairbnb',
+      access_key_id: 'AKIAI7DA7DQEJPGQQCNQ',
+      secret_access_key: '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',
+      s3_region: 'ap-northeast-1'
+    }
+  }
 end
