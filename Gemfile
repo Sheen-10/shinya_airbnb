@@ -79,7 +79,7 @@ gem 'font-awesome-rails'
 
 gem 'aws-sdk', '< 3.0'
 
-gem 'geocoder', '~> 1.4'
+gem 'geocoder', '~> 1.6'
 
 gem 'jquery-ui-rails', '~> 5.0'
 
